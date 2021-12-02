@@ -1,5 +1,5 @@
 
-with open("input.txt", "r") as input:
+with open("01_input.txt", "r") as input:
     measurements = [int(num) for num in input.read().splitlines()]
 
 
