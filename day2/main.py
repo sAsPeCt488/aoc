@@ -37,4 +37,4 @@ def part2():
 
 
 print("[+] Part 1 - Result: ", part1())
-print("[+] Part 1 - Result: ", part2())
+print("[+] Part 2 - Result: ", part2())
