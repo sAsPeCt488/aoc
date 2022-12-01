@@ -1,14 +1,16 @@
+
 with open("01_input.txt", "r") as input:
-    calories = input.read().splitlines()
+    inventory = input.read().splitlines()
 
 elves = []
 elf = []
-for n in calories:
-    if not n:
+
+for snack in inventory:
+    if not snack:
         elves.append(sum(elf))
         elf.clear()
         continue
-    elf.append(int(n))
+    elf.append(int(snack))
 
 max_calories = max(elves)
 print(f"Part 1 answer: {max_calories}")
