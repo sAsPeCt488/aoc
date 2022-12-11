@@ -20,9 +20,6 @@ def move_crate2(dest, src, n):
 
 n_of_stacks = (len(data[0]) // 4)
 
-# for i in range(n_of_stacks):
-#     pepe = [data[i][j:j + 4] for j in range(0, len(data[i]), 4)]
-#     print(pepe)
 stacks = [list() for _ in range(n_of_stacks)]
 
 crates = [list() for _ in range(n_of_stacks)]
