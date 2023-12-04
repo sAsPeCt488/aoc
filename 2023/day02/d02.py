@@ -2,9 +2,6 @@ from math import prod
 
 class CubeSet:
     def __init__(self, red, green, blue):
-        self.red = red
-        self.green = green
-        self.blue = blue
 
         self.cubes = [red, green, blue]
 
@@ -13,24 +10,16 @@ class CubeSet:
 
     def __lt__(self, other):
         if isinstance(other, CubeSet):
-            return self.red < other.red or \
-                self.blue < other.blue or \
-                    self.green < other.green
+            return self.cubes < other.cubes
+                
         else: 
             return NotImplemented
-
 
 class Game():
 
     def __init__(self, game_id, cube_sets):
         self.cube_sets = cube_sets
         self.game_id = game_id
-
-    def is_possible(self, bag):
-        for cubeset in self.cube_sets:
-            if bag < cubeset:
-                return False
-        return True
 
     def get_fewest_possible(self):
         max_set = CubeSet(0, 0, 0)
@@ -70,6 +59,9 @@ def parse_record(record):
     return out
 
 
+PART1_EXAMPLE_ANSWER = 8
+PART2_EXAMPLE_ANSWER = 2286
+
 
 with open("02_example.txt", "r") as f:
     record = [x.strip() for x in f.readlines()]
@@ -81,12 +73,16 @@ part1 = 0
 part2 = 0
 
 for game in games:
-    
-    part2 += game.get_fewest_possible().power()
 
-    if game.is_possible(bag):
+    max_set = game.get_fewest_possible()
+    part2 += max_set.power()
+
+    if max_set < bag:
         part1 += game.game_id
-    
+
+assert part1 == PART1_EXAMPLE_ANSWER, f'Wrong Part 1 answer: {part1} expected {PART1_EXAMPLE_ANSWER}'
+assert part2 == PART2_EXAMPLE_ANSWER, f'Wrong Part 2 answer: {part2} expected {PART2_EXAMPLE_ANSWER}'
+
 print(f"Part 1: {part1}")
 print(f"Part 2: {part2}")
 

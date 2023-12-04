@@ -5,6 +5,9 @@ with open("01_example_p1.txt", "r") as f:
 with open("01_example_p2.txt", "r") as f:
     data_p2 = [x.strip() for x in f.readlines()]
 
+PART1_EXAMPLE_ANSWER = 142
+PART2_EXAMPLE_ANSWER = 281
+
 num_map = {
     'one':'1',
     'two':'2',
@@ -62,4 +65,8 @@ for line in data_p1:
 for line in data_p2:
     part2 += recover_value(line, ignore_words=False)
 
-print(part1, part2)
+assert part1 == PART1_EXAMPLE_ANSWER, f'Wrong Part 1 answer: {part1} expected {PART1_EXAMPLE_ANSWER}'
+assert part2 == PART2_EXAMPLE_ANSWER, f'Wrong Part 2 answer: {part2} expected {PART2_EXAMPLE_ANSWER}'
+
+print(f"Part 1: {part1}")
+print(f"Part 2: {part2}")
