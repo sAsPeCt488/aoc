@@ -37,8 +37,10 @@ for i, card in enumerate(scratch_cards):
 
     part1 += calculate_points(matches, winners, own)
 
+part2 = sum(part2)
+
 assert part1 == PART1_EXAMPLE_ANSWER, f'Wrong Part 1 answer: {part1} expected {PART1_EXAMPLE_ANSWER}'
 assert part2 == PART2_EXAMPLE_ANSWER, f'Wrong Part 2 answer: {part2} expected {PART2_EXAMPLE_ANSWER}'
 
 print(f"Part 1: {part1}")
-print(f"Part 2: {sum(part2)}")
+print(f"Part 2: {part2}")
